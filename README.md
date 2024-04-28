@@ -2,7 +2,7 @@
 
 ----
 
-# Home Sales Analysis with Google Colab and PySpark
+# Home Sales Analysis with Google Colab and Apache Spark
 
 ----
 
