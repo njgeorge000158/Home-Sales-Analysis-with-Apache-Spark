@@ -22,8 +22,6 @@ export PYSPARK_DRIVER_PYTHON=python3
 source ~/.zshrc
 source ~/.bash_profile
 
-pip3 install pyspark
-
 ----
 
 ### **Usage:**
@@ -56,9 +54,9 @@ n/a
 
 #### Software
 
-Apache Spark, Google Colab, Jupyter Notebook, PySpark, Python 
+Apache Spark, Google Colab, PySpark, Python 3.11.5
 
-![Apache Spark](https://img.shields.io/badge/Apache%20Spark-FDEE21?style=flat-square&logo=apachespark&logoColor=black)![Google](https://img.shields.io/badge/google-4285F4?style=for-the-badge&logo=google&logoColor=white)![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Apache Spark](https://img.shields.io/badge/Apache%20Spark-FDEE21?style=flat-square&logo=apachespark&logoColor=black)![Google](https://img.shields.io/badge/google-4285F4?style=for-the-badge&logo=google&logoColor=white)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
 ----
 
@@ -105,8 +103,6 @@ Apache Spark, Google Colab, Jupyter Notebook, PySpark, Python
 [Apache Spark Documentation](https://spark.apache.org/docs/latest/#)
 
 [Google Colab Documentation](https://cloud.google.com/colab/docs)
-
-[Jupyter Notebook Documentation](https://jupyter-notebook.readthedocs.io/en/stable/)
 
 [PySpark Documentation](https://spark.apache.org/docs/latest/api/python/getting_started/index.html)
 
