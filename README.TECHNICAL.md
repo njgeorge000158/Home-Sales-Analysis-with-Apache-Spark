@@ -19,9 +19,13 @@ source ~/.bash_profile
 brew install apache-spark
 
 export SPARK_HOME=/usr/local/Cellar/apache-spark/<version>/libexec
+
 export PYSPARK_PYTHON=python3
+
 export PYSPARK_DRIVER_PYTHON=python3
+
 source ~/.zshrc
+
 source ~/.bash_profile
 
 ----
