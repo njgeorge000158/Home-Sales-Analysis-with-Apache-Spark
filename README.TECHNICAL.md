@@ -11,7 +11,9 @@ The SQL scripts require the installation of Java, Apache Spark, and PySpark. Her
 brew install openjdk
 
 export JAVA_HOME=$(/usr/libexec/java_home)
+
 source ~/.zshrc
+
 source ~/.bash_profile
 
 brew install apache-spark
