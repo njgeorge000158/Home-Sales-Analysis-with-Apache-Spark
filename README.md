@@ -102,7 +102,7 @@ A central objective of this project is to demonstrate the performance implicatio
 | Uncached (original data) | 1.6829 seconds |
 | Cached table | 1.0190 seconds |
 | Parquet-formatted partition | 1.1948 seconds |
-| Parquet DataFrame API | 1.5331 seconds |
+| Parquet DataFrame API | 1.1531 seconds |
 
 Caching delivered the fastest execution time, reducing runtime by approximately 39% compared to the uncached baseline. By loading the dataset into memory, Spark eliminates the I/O overhead of reading from disk on repeated queries — a benefit that compounds significantly as dataset size grows. Parquet formatting produced the second-best performance, running approximately 29% faster than the uncached baseline. Parquet's columnar storage format enables two powerful optimizations: column pruning, which skips columns irrelevant to the query, and predicate pushdown, which filters data at the storage layer before it reaches the query engine — reducing both the volume of data read and the computational work required. The Parquet DataFrame API approach, while using the same underlying file format, ran slightly slower than the SQL-based Parquet query, reflecting the different execution paths taken by the two methods.
 
