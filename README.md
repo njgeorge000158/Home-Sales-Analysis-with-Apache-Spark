@@ -14,7 +14,7 @@ This project leverages PySpark on Google Colab to extract key metrics from a hom
 
 ## **Analytical Questions and Findings**
 
-### *Question 1: What is the average price of a four-bedroom house sold each year?*
+### - *Question 1: What is the average price of a four-bedroom house sold each year?*
 
 <img width="803" alt="home_sales_query3" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/a66cadf6-01ab-4763-acda-5379ff876ffe">
 
