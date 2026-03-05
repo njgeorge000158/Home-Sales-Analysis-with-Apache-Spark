@@ -16,6 +16,8 @@ This project leverages PySpark on Google Colab to extract key metrics from a hom
 
 ### *Question 1: What is the average price of a four-bedroom house sold each year?*
 
+<img width="803" alt="home_sales_query3" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/a66cadf6-01ab-4763-acda-5379ff876ffe">
+
 As shown in Image 1, the Spark SQL query filters the dataset to four-bedroom homes, groups by sale year, and returns the following average prices:
 
 | Year | Average Price |
@@ -28,6 +30,8 @@ As shown in Image 1, the Spark SQL query filters the dataset to four-bedroom hom
 The results reveal a notably narrow price range across all four years — a spread of only about $5,500 from the lowest to the highest annual average. Prices peaked in 2021 at approximately $301,819 before declining modestly in 2022 to $296,364. No clear directional trend is apparent: prices fluctuate slightly from year to year without a sustained upward or downward trajectory. This stability suggests that, for four-bedroom homes specifically, annual sale year alone is a weak predictor of price — other factors are likely driving individual sale prices within each year.
 
 ### *Question 2: What is the average price of a three-bedroom, three-bathroom home by year built?*
+
+<img width="797" alt="home_sales_query4" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/80885e84-ba01-4cb1-80ab-e7c41c4de379">
 
 Image 2 presents average prices for three-bedroom, three-bathroom homes grouped by the year in which the home was constructed, spanning 2010 through 2017:
 
@@ -46,6 +50,8 @@ Again, the price variation across years is remarkably compressed — all eight a
 
 ### *Question 3: What is the average price of a three-bedroom, three-bathroom, two-floor home of at least 2,000 square feet, by year built?*
 
+<img width="864" alt="home_sales_query5" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/c394ee93-2ae4-4057-abe3-40d8cc4c62bd">
+
 Adding floor count and minimum square footage as additional filters, Image 3 refines the previous query further:
 
 | Year Built | Average Price |
@@ -62,6 +68,8 @@ Adding floor count and minimum square footage as additional filters, Image 3 ref
 This more constrained query produces greater year-to-year variation than the previous two — a range of approximately $31,000 from the lowest average (2011 at $276,554) to the highest (2012 at $307,540). Interestingly, the pattern here does not follow a simple linear trend: prices are highest for homes built between 2012 and 2014, dip sharply for 2011-built homes, and taper off again for the most recently built homes in 2017. This non-linear pattern reinforces the conclusion that construction year is not a reliable standalone predictor of price — even when controlling for bedroom count, bathroom count, floor count, and minimum living area.
 
 ### *Question 4: What is the "view" rating for homes with an average price of at least $350,000?*
+
+<img width="830" alt="home_sales_query6" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/e51fd232-62ab-4e69-a49e-d882fb5f5307">
 
 The fourth and most revealing query examines the relationship between a property's view rating — scored on a scale from 0 to 99 — and average sale price, filtered to homes averaging $350,000 or more. Images 4 through 7 all present versions of this query run under different execution strategies, with the top 20 results displayed in each case. A selection of the results:
 
@@ -80,6 +88,12 @@ The results are striking. Every view rating displayed in the top 20 results is a
 ---
 
 ## **Query Performance: Uncached vs. Cached vs. Parquet**
+
+<img width="797" alt="home_sales_query7" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/68e9d1c6-7e04-4026-916e-1cdf0d618b58">
+
+<img width="798" alt="home_sales_query8" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/5b8f6624-5add-4def-976b-0cfbd68ed11a">
+
+<img width="652" alt="home_sales_query9" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/1ec90324-98b2-4bb8-afeb-97a7f6c5555a">
 
 A central objective of this project is to demonstrate the performance implications of different data storage and retrieval strategies in a Spark environment. The same view-rating query was executed under three conditions, with execution times recorded:
 
@@ -103,38 +117,6 @@ The home sales analysis surfaces two primary findings. First, the structural and
 Second, and most compellingly, view rating emerges as a dramatically more powerful price signal than any structural attribute examined. Homes with high view ratings command average prices exceeding $1,000,000 — three to four times the averages produced by any other query in the analysis. For buyers, sellers, and analysts alike, this finding underscores the outsized premium the market places on scenic views relative to the physical characteristics of the home itself.
 
 From a technical standpoint, the project demonstrates concretely that caching and Parquet formatting are not merely theoretical optimizations — they produce measurable, reproducible performance gains even on modest datasets, and their value scales directly with data volume.
-
----
-----------------
-
-With PySpark on Google Colab, this project looks for key metrics about home sales data using temporary views, data partitions, and cached tables. The project answers the following questions about home sales:
-
-1. What is the average price for a four-bedroom house sold for each year?
-
-<img width="803" alt="home_sales_query3" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/a66cadf6-01ab-4763-acda-5379ff876ffe">
-
-2. What is the average price of a home for each year it was built that has three bedrooms and three bathrooms?
-
-<img width="797" alt="home_sales_query4" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/80885e84-ba01-4cb1-80ab-e7c41c4de379">
-
-3. What is the average price of a home for each year that has three bedrooms, three bathrooms, two floors, and is greater than or equal to 2,000 square feet?
-
-<img width="864" alt="home_sales_query5" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/c394ee93-2ae4-4057-abe3-40d8cc4c62bd">
-
-4. What is the "view" rating for homes costing more than or equal to $350,000?
-
-<img width="830" alt="home_sales_query6" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/e51fd232-62ab-4e69-a49e-d882fb5f5307">
-
-Many factors influence query runtime: query complexity, size of data set, system resources, and hardware configuration, among others. All factors being equal for this project, both cached data and Parquet formatted data have faster runtimes compared to the original data. Specifically, caching stores the data in memory for rapid retrieval as opposed to reading information from the hard drive, and Parquet is an optimized storage format specifically designed for efficient data processing that offers several advantages over traditional formats by enabling column pruning and predicate pushdown. These features allow queries to leverage columnar optimizations to skip irrelevant columns and partitions during execution for faster performance, reduced storage requirements, and improved overall data processing efficiency. The following execution times demonstrate the advantages of using caching and partitioning to improve the runtime of data analysis tasks, which are crucial for working effectively with large data sets.
-
-<img width="797" alt="home_sales_query7" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/68e9d1c6-7e04-4026-916e-1cdf0d618b58">
-
-<img width="798" alt="home_sales_query8" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/5b8f6624-5add-4def-976b-0cfbd68ed11a">
-
-<img width="652" alt="home_sales_query9" src="https://github.com/njgeorge000158/Home-Sales-Analysis-with-Google-Colab-and-PySpark/assets/137228821/1ec90324-98b2-4bb8-afeb-97a7f6c5555a">
-
-
-In conclusion, the provided home sales information does not show any direct relationship between the year of construction or sale and the average price. Consequently, there is likely other determinants for housing prices, such as changes in economic conditions, changes in market conditions, location, and comparative property attributes.
 
 ----
 
